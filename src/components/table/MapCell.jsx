@@ -22,7 +22,7 @@ export const MapCell = ({ cellType, x, y }) => {
     <Group position="center" direction="column" spacing={0}>
       <Text align="center">Pos : {x}, {y}</Text>
       <Text align="center">Cell type : {cellName(cellType)}</Text>
-      <Text align="center">{isSpawnPosition ? "Is spawning position" : ""}</Text>
+      <Text align="center">{isSpawnPosition ? "Is spawn position" : ""}</Text>
     </Group>
   );
 
