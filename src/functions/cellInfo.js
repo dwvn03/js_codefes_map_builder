@@ -33,5 +33,5 @@ export function cellName(cellType) {
 };
 
 export function spriteSrc(cellType) {
-    return `/src/assets/sprites/${cellName(cellType)}_1x.png`;
+    return `/assets/sprites/${cellName(cellType)}_1x.png`;
 };
