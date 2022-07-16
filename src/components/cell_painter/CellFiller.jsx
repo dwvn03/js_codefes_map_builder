@@ -26,6 +26,7 @@ export const CellFiller = ({ setOpened }) => {
           height={35}
           src={spriteSrc(type)}
           withPlaceholder
+          alt={cellName(type)}
         />
 
         <Text>{cellName(type)}</Text>

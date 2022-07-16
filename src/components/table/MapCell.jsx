@@ -44,6 +44,7 @@ export const MapCell = ({ cellType, x, y }) => {
             width={35}
             height={35}
             src={spriteSrc(cellType)}
+            alt={cellName(cellType)}
           />
         </Tooltip>
       </Box>
