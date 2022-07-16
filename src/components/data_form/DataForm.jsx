@@ -35,7 +35,7 @@ export const DataForm = ({ setOpened }) => {
       })
 
       return {
-        max_players: !isValidSpawnNumbers(values.spawns, values.max_players) ? "The number of spawning positions is bigger than max number of players" : null,
+        max_players: !isValidSpawnNumbers(values.spawns, values.max_players) ? "The number of spawn positions is bigger than max number of players" : null,
         ...spawnsErr,
       }
     },
