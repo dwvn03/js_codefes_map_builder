@@ -26,7 +26,7 @@ export const CellFiller = ({ setOpened }) => {
           height={35}
           src={spriteSrc(type)}
           withPlaceholder
-          alt={cellName(type)}
+          alt={[4, 5, 6].includes(type) ? "none" : cellName(type)}
         />
 
         <Text>{cellName(type)}</Text>
@@ -36,7 +36,7 @@ export const CellFiller = ({ setOpened }) => {
 
   return (
     <Container size="sm" my={20} shadow="md">
-      <Title order={3} align="center" mb={10}>Select cell filler type</Title>
+      <Title order={3} align="center" mb={10}>Select cell <br />filler type</Title>
 
       <Stack>
         { options }

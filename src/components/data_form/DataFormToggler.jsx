@@ -23,7 +23,7 @@ export const DataFormToggler = () => {
         onClose={() => setOpened(false)}
         position={{ top: 20, left: 20 }}
         transition="fade"
-        size="lg"
+        size="md"
         radius="md"
         shadow="md"
       >

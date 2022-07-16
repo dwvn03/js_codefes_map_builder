@@ -23,7 +23,8 @@ export const CellFillerToggler = () => {
         onClose={() => setOpened(false)}
         position={{ top: 20, right: 20 }}
         transition="fade"
-        size="lg"
+        // size="md"
+        size={250}
         radius="md"
         shadow="md"
       >

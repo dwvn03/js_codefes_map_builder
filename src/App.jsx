@@ -1,6 +1,6 @@
 import { Title, Container } from "@mantine/core";
 
-import { CellFillerToggler } from "./components/cell_painter/CellFillerToggler";
+import { CellFillerToggler } from "./components/cell_filler/CellFillerToggler";
 import { DataFormToggler } from "./components/data_form/DataFormToggler";
 import { MapTable } from "./components/table/MapTable";
 import { MapInfo } from "./components/map_info/MapInfo";
