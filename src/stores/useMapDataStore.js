@@ -3,7 +3,7 @@ import create from "zustand";
 import { testJsonMapData } from "./testMapData";
 import { useDataFromFile, gen2DArr } from "../functions";
 
-export const useMapDataStore = create((set) => {
+export const useMapDataStore = create((set, get) => {
     let { width, height, map, max_players, spawns } = useDataFromFile(testJsonMapData);
 
     return {
@@ -18,13 +18,15 @@ export const useMapDataStore = create((set) => {
             useDataFromFile(mapData)
         ),
 
-        setMapDataFromForm: (mapDataFromForm) => set((state) => {
-            if (state.height != mapDataFromForm.height || state.width != mapDataFromForm.width) {
-                state.resetMap(mapDataFromForm.width, mapDataFromForm.height);
+        setMapDataFromForm: (mapDataFromForm) => {
+            let mapSizeChanged = get().height != mapDataFromForm.height || get().width != mapDataFromForm.width;
+            
+            set(mapDataFromForm);
+            
+            if (mapSizeChanged) {
+                get().resetMap();
             }
-
-            return mapDataFromForm;
-        }),
+        },
 
         resetMap: () => set((state) => ({
             map: gen2DArr(state.width, state.height),

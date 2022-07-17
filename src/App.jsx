@@ -8,12 +8,19 @@ import { MapInfo } from "./components/map_info/MapInfo";
 export const App = () => {
   return (
     <>
-      <Container size="md">
+      <Container 
+        size="md" 
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+      >
         <Title order={1} align="center" my={20}>Map Generator</Title>
-        <MapInfo />
         <MapTable />
       </Container>
 
+      <MapInfo />
       <DataFormToggler />
       <CellFillerToggler />
     </>

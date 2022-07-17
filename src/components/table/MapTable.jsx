@@ -20,6 +20,9 @@ export const MapTable = () => {
       striped={false}
       horizontalSpacing={0}
       verticalSpacing={0}
+      sx={{
+        width: "50%",
+      }}
     >
       <tbody>{rows}</tbody>
     </Table>

@@ -23,10 +23,9 @@ export const CellFillerToggler = () => {
         onClose={() => setOpened(false)}
         position={{ top: 20, right: 20 }}
         transition="fade"
-        // size="md"
         size={250}
         radius="md"
-        shadow="md"
+        shadow="xl"
       >
         <CellFiller setOpened={setOpened}/>
       </Dialog>

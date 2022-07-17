@@ -27,11 +27,11 @@ export const MapCell = ({ cellType, x, y }) => {
   );
 
   return (
-    <td 
+    <td
       ref={ref} 
       onClick={() => setCellData(x, y, isSpawnPosition, rejectSetCellDataNotif)}
     >
-      <Box sx={{ position: "relative", height: 35 }}>
+      <Box sx={{ position: "relative", height: 35, width: 35 }}>
         { hovered && <Overlay opacity={0.6} color="#fff" zIndex={5}/> }
         { isSpawnPosition && <Overlay opacity={0.6} color="#59ecff" zIndex={6}/> }
 
