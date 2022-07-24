@@ -1,11 +1,12 @@
 import { Image, Tooltip, Overlay, Box, Text, Group } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 import { useNotifications } from "@mantine/notifications";
+import { memo } from "react";
 
 import { useSpawnPosition, cellName, spriteSrc } from "../../functions";
 import { useMapDataStore } from "../../stores/useMapDataStore";
 
-export const MapCell = ({ cellType, x, y }) => {
+export const MapCell = memo(function MapCell({ cellType, x, y }) {
   const { hovered, ref } = useHover();
 
   const setCellData = useMapDataStore(state => state.setCellData);
@@ -17,7 +18,7 @@ export const MapCell = ({ cellType, x, y }) => {
     color: "red",
     title: "Spawn position can only be empty cell",
   });  
-
+	
   const tooltipLable = (
     <Group position="center" direction="column" spacing={0}>
       <Text align="center">Pos : {x}, {y}</Text>
@@ -50,4 +51,4 @@ export const MapCell = ({ cellType, x, y }) => {
       </Box>
     </td>
   )
-}
+})

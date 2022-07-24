@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <>
       <Container 
-        size="md" 
+        size="md"
         sx={{
           display: "flex",
           flexDirection: "column",
