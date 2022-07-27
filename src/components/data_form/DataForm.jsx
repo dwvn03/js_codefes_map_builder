@@ -1,19 +1,16 @@
 import { Title, Container, Group, Button, NumberInput, ActionIcon, Box, Text } from "@mantine/core";
-import { useForm, formList } from "@mantine/form";
+import { useForm } from "@mantine/form";
 import Trash from "tabler-icons-react/dist/icons/trash";
 
 import { FileImport } from "./FileImport";
 import { FileExport } from "./FileExport";
 
 import { useMapDataStore } from "../../stores/useMapDataStore";
+import shallow from "zustand/shallow";
 import { isValidSpawnPosition, isValidSpawnNumbers } from "../../functions";
 
 export const DataForm = ({ setOpened }) => {
-  const width = useMapDataStore((state) => state.width);
-  const height = useMapDataStore((state) => state.height);
-  const map = useMapDataStore((state) => state.map);
-  const max_players = useMapDataStore((state) => state.max_players);
-  const spawns = useMapDataStore((state) => state.spawns);
+  const [width, height, map, max_players, spawns] = useMapDataStore(state => [state.width, state.height, state.map, state.max_players, state.spawns], shallow)
 
   const setMapDataFromForm = useMapDataStore(state => state.setMapDataFromForm);
   const resetMap = useMapDataStore(state => state.resetMap);
@@ -23,7 +20,7 @@ export const DataForm = ({ setOpened }) => {
       width,
       height,
       max_players,
-      spawns: formList(spawns),
+      spawns,
     },
 
     validate: (values) => {
@@ -41,31 +38,30 @@ export const DataForm = ({ setOpened }) => {
     },
   });
 
-  const spawnInputs = form.values.spawns.map((item, index) => {
-    return (
+  const spawnInputs = form.values.spawns.map((item, index) => (
     <Group key={`${item.col} ${item.row}`} mt="xs">
       <NumberInput
         required
         placeholder="x"
         sx={{ flex: 1 }}
-        {...form.getListInputProps("spawns", index, "col")}
+        {...form.getInputProps(`spawns.${index}.col`)}
       />
       <NumberInput
         required
         placeholder="y"
         sx={{ flex: 1 }}
-        {...form.getListInputProps("spawns", index, "row")}
+        {...form.getInputProps(`spawns.${index}.row`)}
       />
 
       <ActionIcon
         color="red"
-        variant="hover"
+        variant="light"
         onClick={() => form.removeListItem("spawns", index)}
       >
         <Trash size={16} />
       </ActionIcon>
     </Group>
-  )});
+  ));
 
   return (
     <Container size={420} my={20} shadow="md">
@@ -77,7 +73,10 @@ export const DataForm = ({ setOpened }) => {
         <FileExport form={form}/>
       </Group>
 
-      <form onSubmit={form.onSubmit(values => setMapDataFromForm(values))}>
+      <form onSubmit={form.onSubmit(values => 
+        // setMapDataFromForm(values)
+        console.log(values)
+      )}>
         <Group noWrap="true">
           <NumberInput 
             label="Map width" 
@@ -113,7 +112,7 @@ export const DataForm = ({ setOpened }) => {
         {spawnInputs}
 
         <Group position="center" mt="md">
-          <Button onClick={() => form.addListItem("spawns", { col: 0, row: 0 }) } >
+          <Button onClick={() => form.insertListItem("spawns", { col: 0, row: 0 }) } >
             Add spawn position
           </Button>
         </Group>

@@ -27,7 +27,7 @@ export const CellFillerToggler = () => {
         radius="md"
         shadow="xl"
       >
-        <CellFiller setOpened={setOpened}/>
+        <CellFiller />
       </Dialog>
     </>
   )
