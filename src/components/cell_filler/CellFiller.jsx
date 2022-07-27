@@ -3,7 +3,7 @@ import { Title, Container, Group, Image, Box, Text, Stack } from "@mantine/core"
 import { useMapDataStore } from "../../stores/useMapDataStore";
 import { cellName, spriteSrc } from "../../functions";
 
-export const CellFiller = ({ setOpened }) => {
+export const CellFiller = () => {
   const cellFillerType = useMapDataStore(state => state.cellFillerType);
   const setCellFillerType = useMapDataStore(state => state.setCellFillerType);
 
@@ -24,7 +24,7 @@ export const CellFiller = ({ setOpened }) => {
         <Image
           width={35}
           height={35}
-          src={spriteSrc(type)}
+          src={[4, 5, 6].includes(type) ? null : spriteSrc(type)}
           withPlaceholder
           alt={[4, 5, 6].includes(type) ? "none" : cellName(type)}
         />

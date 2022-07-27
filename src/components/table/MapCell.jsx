@@ -1,6 +1,6 @@
 import { Image, Tooltip, Overlay, Box, Text, Group } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
-import { useNotifications } from "@mantine/notifications";
+import { showNotification } from "@mantine/notifications";
 import { memo } from "react";
 
 import { useSpawnPosition, cellName, spriteSrc } from "../../functions";
@@ -13,8 +13,7 @@ export const MapCell = memo(function MapCell({ cellType, x, y }) {
 
   const { isSpawnPosition } = useSpawnPosition(x, y);
 
-  const notifications = useNotifications();
-  const rejectSetCellDataNotif = () => notifications.showNotification({
+  const rejectSetCellDataNotif = () => showNotification({
     color: "red",
     title: "Spawn position can only be empty cell",
   });  

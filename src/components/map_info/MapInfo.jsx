@@ -1,12 +1,10 @@
 import { Text, Title, Group, Affix, Paper } from "@mantine/core";
 
 import { useMapDataStore } from "../../stores/useMapDataStore";
+import shallow from "zustand/shallow";
 
 export const MapInfo = () => {
-  const width = useMapDataStore((state) => state.width);
-  const height = useMapDataStore((state) => state.height);
-  const max_players = useMapDataStore((state) => state.max_players);
-  const spawns = useMapDataStore((state) => state.spawns);
+  const [width, height, max_players, spawns] = useMapDataStore(state => [state.width, state.height, state.max_players, state.spawns], shallow)
 
   return (
     <Affix position={{ bottom: 15, left: 15 }} >

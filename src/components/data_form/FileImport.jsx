@@ -1,22 +1,21 @@
 import { useRef } from "react";
 import { Button } from "@mantine/core";
 import { Dropzone } from "@mantine/dropzone";
-import { useNotifications } from "@mantine/notifications";
+import { showNotification } from "@mantine/notifications";
 
 import { useMapDataStore } from "../../stores/useMapDataStore";
 
 export const FileImport = ({ setOpened }) => {
   const openRef = useRef();
-  const notifications = useNotifications();
 
   const setMapDataFromFile = useMapDataStore(state => state.setMapDataFromFile);
 
-  const rejectedUploadNotif = () => notifications.showNotification({
+  const rejectedUploadNotif = () => showNotification({
     color: "red",
     title: "Invalid file selected",
   });  
 
-  const acceptedUploadNotif = () => notifications.showNotification({
+  const acceptedUploadNotif = () => showNotification({
     color: "green",
     title: "Data imported successfully",
   });  
@@ -50,7 +49,6 @@ export const FileImport = ({ setOpened }) => {
         accept={["application/json"]}
         maxSize={5 * 1024}
       >
-        {() => <></>}
       </Dropzone>
     </>
   );
