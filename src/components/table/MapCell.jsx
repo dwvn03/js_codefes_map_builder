@@ -10,6 +10,7 @@ export const MapCell = memo(function MapCell({ cellType, x, y }) {
   const { hovered, ref } = useHover();
 
   const setCellData = useMapDataStore(state => state.setCellData);
+  const cellPainting = useMapDataStore(state => state.cellPainting);
 
   const { isSpawnPosition } = useSpawnPosition(x, y);
 
@@ -30,6 +31,7 @@ export const MapCell = memo(function MapCell({ cellType, x, y }) {
     <td
       ref={ref} 
       onClick={() => setCellData(x, y, isSpawnPosition, rejectSetCellDataNotif)}
+      onMouseOver={() => cellPainting ? setCellData(x, y, isSpawnPosition, rejectSetCellDataNotif) : null}
     >
       <Box sx={{ position: "relative", height: 35, width: 35 }}>
         { hovered && <Overlay opacity={0.6} color="#fff" zIndex={5}/> }

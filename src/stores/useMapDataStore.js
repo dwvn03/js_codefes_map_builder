@@ -12,6 +12,7 @@ export const useMapDataStore = create((set, get) => {
         map,
         max_players,
         spawns,
+        cellPainting: false,
         cellFillerType: 2,
 
         setMapDataFromFile: (mapData) => set(
@@ -47,6 +48,10 @@ export const useMapDataStore = create((set, get) => {
 
         setCellFillerType: (type) => set({ 
             cellFillerType: type,
+        }),
+
+        toggleCellPainting: () => set({
+            cellPainting: !get().cellPainting,
         })
     }   
 })

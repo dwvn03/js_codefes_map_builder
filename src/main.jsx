@@ -5,11 +5,11 @@ import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <MantineProvider>
       <NotificationsProvider>
         <App />
       </NotificationsProvider>
     </MantineProvider>
-  // {/* </React.StrictMode>   */}
+  </React.StrictMode>
 )
