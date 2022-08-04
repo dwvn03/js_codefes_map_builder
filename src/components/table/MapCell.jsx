@@ -28,7 +28,11 @@ export const MapCell = memo(function MapCell({ cellType, x, y }) {
   );
 
   return (
-    <td
+    <Box
+      component="td"
+      sx={{
+        userSelect: "none"
+      }}
       ref={ref} 
       onClick={() => setCellData(x, y, isSpawnPosition, rejectSetCellDataNotif)}
       onMouseOver={() => cellPainting ? setCellData(x, y, isSpawnPosition, rejectSetCellDataNotif) : null}
@@ -50,6 +54,6 @@ export const MapCell = memo(function MapCell({ cellType, x, y }) {
           />
         </Tooltip>
       </Box>
-    </td>
+    </Box>
   )
 })
