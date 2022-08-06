@@ -73,10 +73,7 @@ export const DataForm = ({ setOpened }) => {
         <FileExport form={form}/>
       </Group>
 
-      <form onSubmit={form.onSubmit(values => 
-        // setMapDataFromForm(values)
-        console.log(values)
-      )}>
+      <form onSubmit={form.onSubmit(values => setMapDataFromForm(values))}>
         <Group noWrap="true">
           <NumberInput 
             label="Map width" 

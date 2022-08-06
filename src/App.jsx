@@ -14,8 +14,8 @@ export const App = () => {
   const toggleCellPainting = useMapDataStore(state => state.toggleCellPainting)
 
   useEffect(() => {
-    document.body.addEventListener("mousedown", toggleCellPainting);
-    document.body.addEventListener("mouseup", toggleCellPainting);
+    document.body.addEventListener("mousedown", () => toggleCellPainting(true));
+    document.body.addEventListener("mouseup", () => toggleCellPainting(false));
   }, [])
 
   return (

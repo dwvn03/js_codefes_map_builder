@@ -50,8 +50,8 @@ export const useMapDataStore = create((set, get) => {
             cellFillerType: type,
         }),
 
-        toggleCellPainting: () => set({
-            cellPainting: !get().cellPainting,
-        })
+        toggleCellPainting: (cellPainting = !get().cellPainting) => set({
+            cellPainting,
+        }),
     }   
 })
