@@ -17,6 +17,7 @@ export const CellFiller = () => {
         borderRadius: 10,
         backgroundColor: cellFillerType == type ? "#59ecff" : "#fff",
         border: "1px solid black",
+        cursor: "pointer"
       }} 
       onClick={() => setCellFillerType(type)}
     >
